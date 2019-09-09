@@ -32,6 +32,17 @@ export function reducer(state, action) {
                         }
                     })
                 };
+                case "CLEAR_COMPLETED":
+                    return {
+                        ...state,
+                        todoList: state.todoList.filter(todo => {
+                            if (todo.completed === true) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        })
+                    };
     default:
     return state;
     }

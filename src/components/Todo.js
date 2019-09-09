@@ -4,7 +4,8 @@ const Todo = ({ todoList, toggleTodo }) => {
     return(
         <div>
             {todoList.map(todo => (
-                <div key={todo.id} onClick={() => toggleTodo(todo.id)}>
+                <div key={todo.id} onClick={() => toggleTodo(todo.id)}
+                    className={todo.completed ? "completed" : ""}>
                     {todo.item}
                 </div>
                 ))}
