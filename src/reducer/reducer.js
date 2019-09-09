@@ -18,6 +18,20 @@ export function reducer(state, action) {
                     id: Date.now()
                 }]
             };
+            case "TOGGLE_TODO":
+                return{
+                    ...state,
+                    todoList: state.todoList.map(todo => {
+                        if (todo.id === action.payload) {
+                            return {
+                                ...todo,
+                                completed: !todo.completed
+                            };
+                        } else {
+                            return todo;
+                        }
+                    })
+                };
     default:
     return state;
     }

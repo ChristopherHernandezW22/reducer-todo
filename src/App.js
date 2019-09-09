@@ -13,9 +13,13 @@ function App() {
     dispatch({ type: "ADD_TODO", payload: item});
   };
 
+  const toggleTodo = id => {
+    dispatch({ type: "TOGGLE_TODO", payload: id });
+  };
+
   return (
     <div className="App">
-      <Todo todoList={state.todoList}/>
+      <Todo todoList={state.todoList} toggleTodo={toggleTodo}/>
       <Form addTodo={addTodo} />
     </div>
   );
